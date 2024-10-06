@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <!-- Firebase SDK scripts -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script>
+  // Your Firebase configuration object
+  var firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="description" content="hi.">
@@ -26,6 +43,16 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
+    
+    <!-- Login/Sign-up form -->
+<div>
+    <h2>Login or Sign up</h2>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="logIn()">Log In</button>
+    <p id="authMessage"></p>
+</div>
 
     <center><img src="assets/img/download__1_-removebg-preview.png" alt="epicness made by me :)" style="width:125px;height:125px;">
         <b><h1 class="flick">Price School Chatroom</center></h1></b>
@@ -65,6 +92,75 @@
   </div>
 
 <link rel="stylesheet" href="assets/css/css.css">
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("authMessage").innerText = "Login successful! Welcome to the chat!";
+      })
+      .catch((error) => {
+        document.getElementById("authMessage").innerText = error.message;
+      });
+  }
+
+  // Check if the user is already logged in
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById("authMessage").innerText = "You're logged in as: " + user.email;
+    }
+  });
+</script>
+<script>
+  // Sign up function
+  function signUp() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("authMessage").innerText = "Sign-up successful! You can now log in.";
+      })
+      .catch((error) => {
+        document.getElementById("authMessage").innerText = error.message;
+      });
+  }
+
+  // Log in function
+  function logIn() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("authMessage").innerText = "Login successful! Welcome to the chat!";
+      })
+      .catch((error) => {
+        document.getElementById("authMessage").innerText = error.message;
+      });
+  }
+
+  // Check if the user is already logged in
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById("authMessage").innerText = "You're logged in as: " + user.email;
+    }
+  });
+</script>
+
+<script>
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById("authMessage").innerText = "Welcome, " + user.email;
+      // Show chatroom, hide login form
+      document.getElementById("login-form").style.display = "none";
+      document.getElementById("chatroom").style.display = "block";
+    } else {
+      // Show login form, hide chatroom
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("chatroom").style.display = "none";
+    }
+  });
+</script>
+
 
 </body>
 </html>
