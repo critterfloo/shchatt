@@ -2,20 +2,25 @@
 <html lang="en">
 <head> 
     <!-- Firebase SDK scripts -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
+
 <script>
-  // Your Firebase configuration object
-  var firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    const firebaseConfig = {
+        apiKey: "AIzaSyCwi0yNOjrYdukjE7e1JJU22smwCv7spa4",
+        authDomain: "chat-f47cd.firebaseapp.com",
+        projectId: "chat-f47cd",
+        storageBucket: "chat-f47cd.appspot.com",
+        messagingSenderId: "29077725706",
+        appId: "1:29077725706:web:e911ffb596de27f535b5f3",
+        measurementId: "G-XT2JS7KXQS"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth(app);
+    const analytics = firebase.getAnalytics(app);
 </script>
 
     <meta charset="utf-8">
