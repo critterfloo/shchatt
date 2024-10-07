@@ -1,63 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-    <!-- Firebase SDK scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
-
-<script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyCwi0yNOjrYdukjE7e1JJU22smwCv7spa4",
-        authDomain: "chat-f47cd.firebaseapp.com",
-        projectId: "chat-f47cd",
-        storageBucket: "chat-f47cd.appspot.com",
-        messagingSenderId: "29077725706",
-        appId: "1:29077725706:web:e911ffb596de27f535b5f3",
-        measurementId: "G-XT2JS7KXQS"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth(app);
-    const analytics = firebase.getAnalytics(app);
-</script>
-
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="description" content="hi.">
         <meta name="keywords" content="pwa" >
         <meta name="mobile-web-app-capable" content="yes">
-        <meta name="author" content="Chat App" />
+        <meta name="author" content="PinkLabs" />
         <meta name="copyright" content="Me" />
         <meta name="robots" content="follow"/>
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Chat App">
+        <meta property="og:title" content="PinkLabs">
         <meta property="og:url" content="">
-        <meta property="og:image:secure_url" itemprop="image" content="https://price-school.github.io/assets/img/download__1_-removebg-preview.png">
-        <meta property="og:image" itemprop="image" content="https://price-school.github.io/assets/img/download__1_-removebg-preview.png">
+        <meta property="og:image:secure_url" itemprop="image" content="https://pepsinitro.github.io/assets/img/download__1_-removebg-preview.png">
+        <meta property="og:image" itemprop="image" content="https://pepsinitro.github.io/assets/img/download__1_-removebg-preview.png">
         <meta property="og:image:width" content="1000" />
         <meta property="og:image:height" content="1000" />
         <meta property="og:image:alt" content="e" />
         <meta property="og:description" content="Pokemon is the best">
-        <meta property="og:site_name" content="Chat App">
+        <meta property="og:site_name" content="PepsiNitro">
         <meta name="fragment" content="!">
         <link rel=icon sizes=192x192 href="assets/img/newlogo-192.png">
         <meta name="theme-color" content="#ECEAD9" />
-    <title>Chat App | ChatRoom</title>
+    <title>PinkLabs | ChatRoom</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
-    
-    <!-- Login/Sign-up form -->
-<div>
-    <h2>Login or Sign up</h2>
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <input type="password" id="password" placeholder="Enter your password" required>
-    <button onclick="signUp()">Sign Up</button>
-    <button onclick="logIn()">Log In</button>
-    <p id="authMessage"></p>
-</div>
 
     <center><img src="assets/img/download__1_-removebg-preview.png" alt="epicness made by me :)" style="width:125px;height:125px;">
         <b><h1 class="flick">Price School Chatroom</center></h1></b>
@@ -97,75 +65,6 @@
   </div>
 
 <link rel="stylesheet" href="assets/css/css.css">
-
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        document.getElementById("authMessage").innerText = "Login successful! Welcome to the chat!";
-      })
-      .catch((error) => {
-        document.getElementById("authMessage").innerText = error.message;
-      });
-  }
-
-  // Check if the user is already logged in
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("authMessage").innerText = "You're logged in as: " + user.email;
-    }
-  });
-</script>
-<script>
-  // Sign up function
-  function signUp() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        document.getElementById("authMessage").innerText = "Sign-up successful! You can now log in.";
-      })
-      .catch((error) => {
-        document.getElementById("authMessage").innerText = error.message;
-      });
-  }
-
-  // Log in function
-  function logIn() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        document.getElementById("authMessage").innerText = "Login successful! Welcome to the chat!";
-      })
-      .catch((error) => {
-        document.getElementById("authMessage").innerText = error.message;
-      });
-  }
-
-  // Check if the user is already logged in
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("authMessage").innerText = "You're logged in as: " + user.email;
-    }
-  });
-</script>
-
-<script>
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("authMessage").innerText = "Welcome, " + user.email;
-      // Show chatroom, hide login form
-      document.getElementById("login-form").style.display = "none";
-      document.getElementById("chatroom").style.display = "block";
-    } else {
-      // Show login form, hide chatroom
-      document.getElementById("login-form").style.display = "block";
-      document.getElementById("chatroom").style.display = "none";
-    }
-  });
-</script>
-
 
 </body>
 </html>
