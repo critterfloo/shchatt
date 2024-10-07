@@ -1,20 +1,20 @@
 {
-    "name": "PepsiNitro Games",
-    "short_name": "PepsiNitro",
+    "name": "ChatApp",
+    "short_name": "ChatApp",
     "icons": [
         {
-            "src": "assets/img/logo-192.png",
+            "src": "assets/img/download__1_-removebg-preview.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "assets/img/logo-512.png",
+            "src": "assets/img/download__1_-removebg-preview.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "FFFFFF",
+    "background_color": "#ECEAD9T",
     "display": "standalone",
     "gcm_sender_id": "103953800507",
     "start_url":"index.html"
